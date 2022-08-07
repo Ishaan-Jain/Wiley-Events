@@ -1,0 +1,35 @@
+<app-header></app-header>
+<a href="http://localhost:4200/signin">Sign-In</a>
+<form class="add-form" (ngSubmit)="OnSubmit()">
+  <div class="form-control">
+    <label for="text">Email</label>
+    <input
+    type="text"
+    name="text"
+    [(ngModel)]="email"
+    id="text"
+    placeholder="Add-Email">
+  </div>
+  <div class="form-control">
+    <label for="text">Password</label>
+    <input
+    type="password"
+    name="text"
+    [(ngModel)]="password"
+    id="text"
+    placeholder="Add-Password">
+  </div>
+  <div class="form-control">
+    <label for="text">Admin Key</label>
+    <input
+    type="password"
+    name="text"
+    [(ngModel)]="adminKey"
+    id="text"
+    placeholder="Add-AdminKey">
+  </div>
+  <input
+type="submit"
+value="Register"
+class="btn btn-block">
+</form>

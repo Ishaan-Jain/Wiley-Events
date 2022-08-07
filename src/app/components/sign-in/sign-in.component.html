@@ -1,0 +1,58 @@
+<app-header></app-header>
+<!-- <form class="add-form" (ngSubmit)="OnSubmit()">
+  <div class="form-control">
+    <label for="text">Email</label>
+    <input
+    type="text"
+    name="text"
+    [(ngModel)]="email"
+    id="text"
+    placeholder="Add-Email">
+  </div>
+  <div class="form-control">
+    <label for="text">Password</label>
+    <input
+    type="password"
+    name="text"
+    [(ngModel)]="password"
+    id="text"
+    placeholder="Add-Password">
+  </div>
+  <input
+type="submit"
+value="Login"
+class="btn btn-block">
+</form> -->
+<a href="http://localhost:4200/register">Register</a>
+<form class="add-form" (ngSubmit)="OnSubmit()">
+<div class="form-control">
+    <mat-form-field style="align-items: center;" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+      matInput
+    type="text"
+    name="text"
+    [(ngModel)]="email"
+    id="text"
+    placeholder="Add-Email">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+      matInput
+    type="password"
+    name="text"
+    [(ngModel)]="password"
+    id="text"
+    placeholder="Add-Password">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </div>
+  <input
+type="submit"
+value="Login"
+class="btn btn-block">
+</form>

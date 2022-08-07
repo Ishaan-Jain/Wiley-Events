@@ -1,0 +1,63 @@
+import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../../services/task.service';
+import {Task} from '../../Task';
+import { saveAs } from 'file-saver';
+
+
+@Component({
+  selector: 'app-tasks',
+  templateUrl: './tasks.component.html',
+  styleUrls: ['./tasks.component.css']
+})
+export class TasksComponent implements OnInit{
+  tasks: Task[] = []
+  admin: boolean = false
+  upcomingEvents: Task[] = []
+
+  constructor(private taskService: TaskService){}
+
+  ngOnInit(): void {
+    this.taskService.getTasks().subscribe((Obj) => {
+      this.tasks = Obj.userEvents;
+      this.admin = Obj.admin;
+      this.upcomingEvents = Obj.upcomingEvents;
+    })
+  }
+
+  deleteTask(task : Task){
+    this.taskService.deleteTask(task).subscribe(() => {
+      this.tasks = this.tasks.filter((t) => t._id !== task._id);
+    })
+  }
+
+  adminDeleteTask(task : Task){
+    this.taskService.adminDeleteTask(task).subscribe(() =>{
+      this.tasks = this.tasks.filter((t) => t._id !== task._id);
+    })
+  }
+
+  toggleReminder(task: Task){
+    task.reminder = !task.reminder;
+    this.taskService.updateTaskReminder(task).subscribe();
+    // user ID will be appended to task in the backend
+  }
+
+  addTask(task: Task){
+    this.taskService.addTask(task).subscribe((task) => {
+      this.tasks.push(task)
+    })
+  }
+
+  downloadRegistered(task: Task){
+    this.taskService.download(task).subscribe((user_arr) => {
+      const file = new File(user_arr, "foo.txt", {
+        type: "text/plain",
+      });
+      saveAs(file,"particepants.txt")
+
+      // var blob = new Blob(user_arr, {type: "text/plain;charset=utf-8"});
+      // saveAs(blob, "students.txt");
+    })
+  }
+
+}

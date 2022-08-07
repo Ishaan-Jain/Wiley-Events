@@ -1,0 +1,7 @@
+<app-header [admin]='admin'></app-header>
+<app-add-task  (onAddTask)="addTask($event)"></app-add-task>
+<p style="padding: 10px;">Your Events</p>
+<app-task-item *ngFor="let task of tasks" [task]='task' [admin]='admin' (onDeleteTask)="deleteTask(task)"  (onToggleReminder)="toggleReminder(task)"  (onAdminDeleteTask)="adminDeleteTask(task)"  (onDownload)="downloadRegistered(task)"></app-task-item>
+<p style="padding: 10px;">Upcoming Events</p>
+<app-task-item *ngFor="let task of upcomingEvents" [task]='task' [admin]='admin' (onDeleteTask)="deleteTask(task)"  (onToggleReminder)="toggleReminder(task)" (onDownload)="downloadRegistered(task)"></app-task-item>
+
