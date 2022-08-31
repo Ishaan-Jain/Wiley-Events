@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class TaskService {
 
-  private apiUrl = "http://localhost:5000/tasks";
+  private apiUrl = "https://wiley-events-4086e0df4568.herokuapp.com/tasks";
 
   constructor(private http: HttpClient) { }
 
