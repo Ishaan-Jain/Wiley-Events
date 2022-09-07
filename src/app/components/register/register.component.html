@@ -1,35 +1,93 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <a routerLink="/signin">Sign-In</a>
 <form class="add-form" (ngSubmit)="OnSubmit()">
+<div class="form-control">
+    <mat-form-field style="align-items: center;" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+      type="text"
+      name="text"
+      [(ngModel)]="email"
+      id="text"
+      placeholder="Add-Email">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </div>
   <div class="form-control">
-    <label for="text">Email</label>
-    <input
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+      type="password"
+      name="text"
+      [(ngModel)]="password"
+      id="text"
+      placeholder="Add-Password">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Admin Key</mat-label>
+      <input
+      type="password"
+      name="text"
+      [(ngModel)]="adminKey"
+      id="text"
+      placeholder="Add-AdminKey">
+    </mat-form-field>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </div>
+  <input
+type="submit"
+value="Register"
+class="btn btn-block">
+</form> -->
+
+
+<app-header></app-header>
+<a routerLink="/register">Register</a>
+<form class="add-form" (ngSubmit)="OnSubmit()">
+<div class="form-control">
+    <mat-form-field style="align-items: center;" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+      matInput
     type="text"
     name="text"
     [(ngModel)]="email"
     id="text"
     placeholder="Add-Email">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
   </div>
   <div class="form-control">
-    <label for="text">Password</label>
-    <input
-    type="password"
-    name="text"
-    [(ngModel)]="password"
-    id="text"
-    placeholder="Add-Password">
-  </div>
-  <div class="form-control">
-    <label for="text">Admin Key</label>
-    <input
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+      matInput
     type="password"
     name="text"
     [(ngModel)]="adminKey"
     id="text"
-    placeholder="Add-AdminKey">
+    placeholder="Add-Password">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Admin Key</mat-label>
+      <input
+      matInput
+    type="password"
+    name="text"
+    [(ngModel)]="password"
+    id="text"
+    placeholder="Add-Key">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
   </div>
   <input
 type="submit"
-value="Register"
+value="Login"
 class="btn btn-block">
 </form>
