@@ -1,0 +1,26 @@
+<div class="App">
+  <div class="box">
+  <form (ngSubmit)="submitRoom()">
+    <input type="text" placeholder="Enter token" [(ngModel)]="CHAT_ROOM" name="text"/>
+    <button type="submit">Submit</button>
+  </form>
+  </div>
+  <div class="box">
+      <div class="messages"></div>
+      <ul id="listOfMessages">
+        <li *ngFor="let message of messageList">
+            {{message}}
+        </li>
+      </ul>
+      <form class="input-div" (ngSubmit)="sendMessage()">
+        <input type="text" placeholder="Type in text"  [(ngModel)]="message" name="text"/>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  <div class="alternate">
+    <li *ngFor="let user of Users">
+      {{user.email}}
+  </li>
+  </div>
+</div>
+  

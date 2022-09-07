@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { LiveChatComponent } from './components/live-chat/live-chat.component';
 
 
 const appRoutes: Routes = [
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     FooterComponent,
     SignInComponent,
     WelcomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    LiveChatComponent
   ],
   imports: [
     BrowserModule,
