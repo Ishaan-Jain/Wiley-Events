@@ -12,7 +12,7 @@ const http = require('http').createServer(app);
 
 const io = require('socket.io')(http, {
     cors: {
-      origins: ['http://localhost:4200']
+      origins: ['https://wiley-events-4086e0df4568.herokuapp.com/']
     }
   });
 

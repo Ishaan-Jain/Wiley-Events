@@ -127,7 +127,7 @@ router.post('/users/login', (req, res) => {
  */
 router.post('/users/register',verifyAdmin , (req, res) => {
   // User sign up
-
+  console.log("hiii")
   let body = req.body;
   let newUser = new User(body);
 
