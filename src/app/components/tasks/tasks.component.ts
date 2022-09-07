@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import {Task} from '../../Task';
 import { saveAs } from 'file-saver';
+import { SignInService } from 'src/app/services/sign-in.service';
+import { EMPTY, catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,15 +17,21 @@ export class TasksComponent implements OnInit{
   tasks: Task[] = []
   admin: boolean = false
   upcomingEvents: Task[] = []
+  email_id!: string
 
-  constructor(private taskService: TaskService){}
+  constructor(private taskService: TaskService, private router: Router){}
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((Obj) => {
+      if(Obj.status === 401){
+        this.router.navigate(['/signin']);
+      }
       this.tasks = Obj.userEvents;
       this.admin = Obj.admin;
       this.upcomingEvents = Obj.upcomingEvents;
+      this.email_id = Obj.userEmail;
     })
+   
   }
 
   deleteTask(task : Task){

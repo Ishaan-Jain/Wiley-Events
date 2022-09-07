@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Task} from '../Task';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import { EMPTY, Observable, catchError, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { NONE_TYPE } from '@angular/compiler';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,11 +17,12 @@ const httpOptions = {
 export class TaskService {
 
   private apiUrl = "https://wiley-events-4086e0df4568.herokuapp.com/tasks";
+  //private apiUrl = "http://localhost:5000/tasks"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getTasks(): Observable<any>{
-     return this.http.get(this.apiUrl);
+     return this.http.get(this.apiUrl)
   }
 
   deleteTask(task: Task): Observable<Task>{
