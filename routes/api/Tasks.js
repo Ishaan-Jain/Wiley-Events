@@ -52,9 +52,19 @@ let authenticate = (req, res, next) => {
   });
 }
 
+
+
 router.get("/",authenticate,async (req,res)=>{
   const id = req.user_id;
   const user = await User.findOne({_id:id})
+  // for(i = 0; i < user.sessions.length; i++){
+  //   if(req.header('x-refresh-token') == user.sessions[i].token){
+  //     if(user.hasRefreshTokenExpired(user.sessions[i].expiresAt)){
+
+  //     }
+  //   }
+  // }
+  let email = user.email;
   let admin = false;
   if(user){
     if(user.Admin){
@@ -81,21 +91,8 @@ router.get("/",authenticate,async (req,res)=>{
       upcomingEvents.push(events[i])
     }
   }
-  // events.forEach((event) =>{
-  //     pushed = true;
-  //     event._userID.forEach((_id) =>{
-  //       if (_id == id){
-  //         userEvents.push(event);
-  //         pushed = false
-
-  //       }
-  //       else if(pushed && _id != id && upcomingEvents.length < 5){
-  //         console.log(pushed)
-  //         upcomingEvents.push(event)
-  //       }
-  //     })
-  // })
-  res.json({userEvents: userEvents,upcomingEvents: upcomingEvents ,admin: admin});
+  
+  res.json({userEvents: userEvents,upcomingEvents: upcomingEvents ,admin: admin, userEmail: email});
 })
 
 router.delete("/:id",authenticate,async (req,res) =>{
