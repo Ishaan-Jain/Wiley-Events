@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
 import { SignInService } from 'src/app/services/sign-in.service';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-register',
