@@ -30,6 +30,7 @@ export class LiveChatComponent implements OnInit{
 
   sendMessage() {
     this.socketService.sendMessage({msg: this.message,room: this.CHAT_ROOM, email: this.email});
+    this.message = ""
   };
 
   ngOnDestroy() {
@@ -42,6 +43,7 @@ export class LiveChatComponent implements OnInit{
       this.messageList.push(message);
     })
     //this.socketService.subscribeToMessages();
+    this.CHAT_ROOM = ""
   }
 
 
