@@ -30,6 +30,7 @@ export class TasksComponent implements OnInit{
       this.admin = Obj.admin;
       this.upcomingEvents = Obj.upcomingEvents;
       this.email_id = Obj.userEmail;
+      localStorage.setItem("admin","True");
     })
    
   }

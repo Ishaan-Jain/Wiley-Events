@@ -13,6 +13,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
     cors: {
       origins: ['https://wiley-events-4086e0df4568.herokuapp.com/']
+      //origins:['https://localhost:4200/chat-room']
     }
   });
 
@@ -59,6 +60,7 @@ io.on('connection', (socket)=>{
         io.emit("users",users)
     })
 })
+
 
 const PORT = process.env.PORT || 5000;
 

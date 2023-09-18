@@ -1,5 +1,6 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, ViewChild} from '@angular/core';
 import { SocketioService } from 'src/app/services/socketio.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-live-chat',
@@ -52,6 +53,8 @@ export class LiveChatComponent implements OnInit{
   //     this.socketService.sendMessage(this.message,this.CHAT_ROOM);
   //   }
   // }
+
+  
 
 }
 

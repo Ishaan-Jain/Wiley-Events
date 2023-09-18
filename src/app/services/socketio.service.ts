@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { io } from 'socket.io-client';
+import { io, Socket } from 'socket.io-client';
 import { Observable, Observer} from 'rxjs';
 
 
@@ -13,7 +13,8 @@ export class SocketioService {
   constructor() { }
 
   setupSocketConnection(room :string, email: string) {
-    this.socket = io("https://wiley-events-4086e0df4568.herokuapp.com/");
+    //this.socket = io("https://wiley-events-4086e0df4568.herokuapp.com/");
+    this.socket = io("https://localhost:5000/chat-room")
     this.socket.emit('room',room,email);
   }
 
@@ -44,6 +45,8 @@ export class SocketioService {
         this.socket.disconnect();
     }
   }
+
+  
 
 
 }

@@ -23,7 +23,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { LiveChatComponent } from './components/live-chat/live-chat.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 const appRoutes: Routes = [
   { path: '', component: TasksComponent },
@@ -58,7 +58,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: WebInterceptorInterceptor, multi: true},
