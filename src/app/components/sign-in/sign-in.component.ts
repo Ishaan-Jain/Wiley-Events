@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
-
+import {catchError} from 'rxjs/operators'; 
 
 
 @Component({
@@ -29,12 +29,20 @@ export class SignInComponent {
       password: this.password
     }
 
-    this.signService.login(newUser).subscribe((res: HttpResponse<any>) =>{
+    this.signService.login(newUser)
+    .subscribe((res: HttpResponse<any>) =>{
       if(res.status === 200){
         this.router.navigate(['']);
       }
-    });
+      
+      // else if(res.status === 400){
+      //   alert("Please check password or Register a new account")
+      // }
+    },
+    (err: any) =>{
+      alert("Please check login credentials or Register a new account")
 
+    })
 
   }
 

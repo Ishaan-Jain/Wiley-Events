@@ -32,6 +32,10 @@ export class RegisterComponent {
       if(res.status === 200){
         this.router.navigate(['']);
       }
+    },
+    (err: any) =>{
+      alert("Please check all credentials are filled")
+
     });
 
 

@@ -30,13 +30,13 @@ export class TasksComponent implements OnInit{
       this.admin = Obj.admin;
       this.upcomingEvents = Obj.upcomingEvents;
       this.email_id = Obj.userEmail;
-      if(this.admin){
-        localStorage.setItem("admin","True");
-      }
-      else{
-        localStorage.setItem("admin","False");
-      }
-      localStorage.setItem("username",this.email_id);
+      // if(this.admin){
+      //   localStorage.setItem("admin","True");
+      // }
+      // else{
+      //   localStorage.setItem("admin","False");
+      // }
+      // localStorage.setItem("username",this.email_id);
     })
    
   }
@@ -75,6 +75,10 @@ export class TasksComponent implements OnInit{
       // var blob = new Blob(user_arr, {type: "text/plain;charset=utf-8"});
       // saveAs(blob, "students.txt");
     })
+  }
+
+  goToChat(){
+    this.router.navigate(["https://dorm-chat-b3557aeb4f98.herokuapp.com/"])
   }
 
 }

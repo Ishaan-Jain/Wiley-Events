@@ -30,7 +30,8 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'signin', component: SignInComponent},
   { path:'welcome',component:WelcomeComponent},
-  { path:'register', component:RegisterComponent}
+  { path:'register', component:RegisterComponent},
+  { path:'**',redirectTo:'signin'}
 ];
 
 @NgModule({
