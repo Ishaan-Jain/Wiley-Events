@@ -34,7 +34,7 @@ export class RegisterComponent {
       }
     },
     (err: any) =>{
-      alert("Please check all credentials are filled")
+      alert("Please check all credentials are filled and password is more than 8 characters long")
 
     });
 

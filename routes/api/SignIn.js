@@ -5,6 +5,7 @@ const uuid = require('uuid');
 const cors = require('cors');
 const User = require("../../models/users");
 const bcrypt = require("bcrypt");
+require("dotenv").config()
 
 
 router.use(bodyParser.json())
@@ -29,7 +30,10 @@ router.use(cors())
 let verifyAdmin = (req,res,next) =>{
   if(req.body.AdminKey !== ""){
     //Key = "masterchef"
+    console.log(req.body.AdminKey)
     if(req.body.AdminKey === process.env.KEY){
+        console.log("hiiiii")
+    
       req.body.Admin = true
       // bcrypt.genSalt(10, (err, salt) => {
       //   bcrypt.hash(req.body.Admin, salt, (err, hash) => {
@@ -127,7 +131,6 @@ router.post('/users/login', (req, res) => {
  */
 router.post('/users/register',verifyAdmin , (req, res) => {
   // User sign up
-  console.log("hiii")
   let body = req.body;
   let newUser = new User(body);
 
