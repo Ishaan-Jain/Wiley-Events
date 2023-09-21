@@ -28,8 +28,8 @@ router.use(cors())
 
 let verifyAdmin = (req,res,next) =>{
   if(req.body.AdminKey !== ""){
-    Key = "masterchef"
-    if(req.body.AdminKey === Key){
+    //Key = "masterchef"
+    if(req.body.AdminKey === process.env.KEY){
       req.body.Admin = true
       // bcrypt.genSalt(10, (err, salt) => {
       //   bcrypt.hash(req.body.Admin, salt, (err, hash) => {
